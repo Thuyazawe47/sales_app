@@ -59,7 +59,7 @@ sales_by_city, y=["Sales Amount"],x=sales_by_city.index,title="<b>Sales Bar Char
 sales_by_month=df_selection.groupby("Month")["Sales Amount"].sum().sort_values(ascending=False)
 
 piechart_month=px.pie(
-sales_by_month,values=sales_by_month.values,names=sales_by_month.index,title="<b>Sales Bar Chart by Month</b>",template="plotly_white",
+sales_by_month,values=sales_by_month.values,names=sales_by_month.index,title="<b>Sales Pie Chart by Month</b>",template="plotly_white",
 )  
 barchart.update_layout(
     plot_bgcolor="rgba(0,0,0,0)",
@@ -75,11 +75,11 @@ col1,col2=st.columns(2)
 
 value=df_selection.groupby("City")["Sales Amount"].sum()
 linechart_city=px.line(
-value, y=value.values,x=value.index,title="<b>Sales Bar Chart by City</b>",template="plotly_white",
+value, y=value.values,x=value.index,title="<b>Sales line Chart by City</b>",template="plotly_white",
 )
 col1.plotly_chart(linechart_city,use_container_width=True) 
 
-scatterchart_city=px.scatter(df_selection, y="Quantity Ordered",x="Sales Amount",title="<b>Sales Bar Chart by City</b>",template="plotly_white",
+scatterchart_city=px.scatter(df_selection, y="Quantity Ordered",x="Sales Amount",title="<b>Sales Scatter Chart by Quantity Order</b>",template="plotly_white",
 )
 
 col2.plotly_chart(scatterchart_city,use_container_width=True)  
